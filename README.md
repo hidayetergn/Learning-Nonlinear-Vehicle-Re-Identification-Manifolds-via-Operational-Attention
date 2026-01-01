@@ -1,7 +1,9 @@
 # An Operational Hybrid Approach for Vehicle Re-Id Using Composite Attention Mechanisms
 Vehicle Re-Identification (V-ReID) is a fundamental yet challenging task in Intelligent Transportation Systems, particularly in scenarios involving non-overlapping camera networks and Unmanned Aerial Vehicle (UAV) surveillance. Traditional Convolutional Neural Networks (CNNs) rely predominantly on linear operations for feature extraction.
 
-Official implementation of the proposed Vehicle Re-Identification (Re-ID) framework. This repository provides the evaluation scripts and pre-trained weights to reproduce the results presented in the paper.
+Official implementation of the proposed Vehicle Re-Identification (Re-ID) framework. This repository contains the inference code and the pre-trained model for the Vehicle Re-Identification method described in the manuscript. The model is provided in the TensorFlow `SavedModel` format, which encapsulates the architecture (including custom layers) and the trained weights.
+
+
 ## 📌 Overview
 
 The proposed framework extracts discriminative embeddings by combining:
@@ -11,6 +13,14 @@ The proposed framework extracts discriminative embeddings by combining:
 * An Operational Block Attention Module (OBAM)
 
 All features are pooled using **Generalized Mean (GeM) pooling**, L2-normalized, and concatenated into a single embedding vector for retrieval-based vehicle re-identification.
+# Vehicle Re-Identification Model Evaluation
+
+## 📂 Repository Structure
+
+- `exported_model/`: Contains the pre-trained model graph and weights (.pb and variables).
+- `prepare_data.py`: Helper script to format the dataset list for testing.
+- `inference.py`: Main script to run feature extraction and similarity analysis.
+- `requirements.txt`: List of dependencies.
 
 
 ## 🧠 Model Architecture
@@ -51,11 +61,12 @@ project_root/
 * PyTorch ≥ 2.0
 * CUDA (A100 GPU, for GPU acceleration)
 
-Install dependencies:
+## 🚀 Installation
 
-```bash
-pip install -r requirements.txt
-```
+1. Clone the repository:
+   ```bash
+   git clone <REPO_URL>
+   cd <REPO_NAME>
 
 ---
 
