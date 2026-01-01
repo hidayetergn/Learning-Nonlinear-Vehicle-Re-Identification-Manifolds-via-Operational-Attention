@@ -144,6 +144,30 @@ python inference.py --image_dir "path/to/images" --test_list "test_list.txt" --m
 --model_dir: Path to the provided exported_model folder.
 --output: Name of the output CSV file (default: hardest_pairs.csv).
 
+## 📊 Model Performance & Analysis
+
+The model has been evaluated on the dataset to identify hard-to-distinguish vehicle pairs. Below is a sample of the "Hardest Negative Pairs" where the model calculates high similarity scores for different vehicle IDs.
+
+### Top Hardest Pairs (Sample)
+The following table lists pairs of IDs with the highest cosine similarity scores, indicating difficult samples for Re-ID tasks.
+
+| Rank | ID_1 | ID_2 | Similarity Score | Image 1 File | Image 2 File |
+| :---: | :---: | :---: | :---: | :--- | :--- |
+| 1 | 0032 | 0035 | **0.9124** | `0032_c001_...jpg` | `0035_c002_...jpg` |
+| 2 | 0105 | 0108 | **0.8950** | `0105_c003_...jpg` | `0108_c001_...jpg` |
+| 3 | 0550 | 0551 | **0.8876** | `0550_c010_...jpg` | `0551_c012_...jpg` |
+| 4 | 0012 | 0019 | **0.8720** | `0012_c005_...jpg` | `0019_c005_...jpg` |
+| ... | ... | ... | ... | ... | ... |
+| 50 | 0772 | 0775 | 0.7540 | `0772_c001_...jpg` | `0775_c004_...jpg` |
+
+> *Note: Full list of 50 hardest pairs is available in the generated `hardest_pairs.csv` file after inference.*
+
+### Visual Examples
+Below are examples of query images and their retrieved results using the proposed model architecture.
+
+![Sample Output](assets/sample_result.png)
+
+
 📊 Output
 The script will generate a CSV file (e.g., hardest_pairs.csv) containing the top 50 pairs of vehicle IDs that the model identifies as most similar.
 This shows the Rank1 and Rank-5 matches of randomly selected images from the test folder.
