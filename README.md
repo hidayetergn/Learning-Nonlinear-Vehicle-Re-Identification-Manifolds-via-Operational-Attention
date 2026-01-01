@@ -164,11 +164,5 @@ The following table lists pairs of IDs with the highest cosine similarity scores
 
 ### Visual Examples
 Below are examples of query images and their retrieved results using the proposed model architecture.
-
-![Sample Output](assets/sample_result.png)
-
-
-📊 Output
-The script will generate a CSV file (e.g., hardest_pairs.csv) containing the top 50 pairs of vehicle IDs that the model identifies as most similar.
 This shows the Rank1 and Rank-5 matches of randomly selected images from the test folder.
 ![Rank1 and Rank-5 Matches Output](assets/result1.png)
