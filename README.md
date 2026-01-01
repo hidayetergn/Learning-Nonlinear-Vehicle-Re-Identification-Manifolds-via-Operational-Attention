@@ -165,4 +165,4 @@ The following table lists pairs of IDs with the highest cosine similarity scores
 ### Visual Examples
 Below are examples of query images and their retrieved results using the proposed model architecture.
 This shows the Rank1 and Rank-5 matches of randomly selected images from the test folder.
-![Rank1 and Rank-5 Matches Output](assets/result1.png)
+![Rank1 and Rank-5 Matches Output](assets/results1.png)
