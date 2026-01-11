@@ -34,7 +34,7 @@ MODEL_DIR = cfg['MODEL']['MODEL_DIR']
 TARGET_IDS = [295, 300, 685, 660, 624, 687, 576, 590, 262, 418, 653, 753,
               598, 614, 654, 717, 473, 480, 96, 108, 642, 657, 337, 554, 476]
 
-# Threshold to skip "tracklet" matches (images from same camera sequence)
+# Threshold to skip "tracklet" matches (images from the same camera sequence)
 # Used in Step 1 to find "Hard" matches.
 SKIP_SIMILARITY_THRESHOLD = 0.92
 
@@ -446,3 +446,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
