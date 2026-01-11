@@ -7,7 +7,7 @@ The proposed framework extracts discriminative embeddings by combining:
 
 * Traditional CNNs struggle to capture high-frequency spatial variations in vehicle identities due to the linear nature of standard convolutions. This repository contains the source code for the **Operational Hybrid Network**, which introduces:
 1.  **Operational Neural Networks (ONN):** Replacing static weights with learnable Taylor-series nodal operations.
-2.  **GCAM (Global Context Awareness Module):** A non-linear self-attention mechanism for global topology.
+2.  **GCAM (Global Context Attention Module):** A non-linear self-attention mechanism for global topology.
 3.  **OBAM (Operational Block Attention Module):** For suppressing environmental clutter.
 
 All features are pooled using **Generalized Mean (GeM) pooling**, L2-normalized, and concatenated into a single embedding vector for retrieval-based vehicle re-identification.
@@ -17,16 +17,17 @@ All features are pooled using **Generalized Mean (GeM) pooling**, L2-normalized,
 
 - `saved_model/`: Contains the pre-trained model graph and weights (.pb and variables).
 - `prepare_data.py`: Helper script to format the dataset list for testing.
-- `inference.py`: Main script to run feature extraction and similarity analysis.
+- `evaluation.py`: Main script to run feature extraction and similarity analysis.
 - `requirements.txt`: List of dependencies.
+- `dataset/`: List of test images as a zip file and test_list.txt.
 
 
 ## 🧠 Model Architecture
 
 * **Backbone**: EfficientNet B4
-* **Pooling**: Details will be shared along with the source code once the paper is accepted.
-* **GCAM**: Details will be shared along with the source code once the paper is accepted.
-* **OBAM**:    Details will be shared along with the source code once the paper is accepted.
+* **Pooling** : Details will be shared along with the source code once the paper is accepted.
+* **GCAM**    : Details will be shared along with the source code once the paper is accepted.
+* **OBAM**    : Details will be shared along with the source code once the paper is accepted.
 
 ## 📂 Repository Structure
 
@@ -40,7 +41,8 @@ Operational-Hybrid-ReID/
 ├── utils/
 │   ├──__init__.py       
 │   └── loader.py    
-├── evaluation.py                  
+├── evaluation.py
+├── prepare_data.py                  
 ├── requirements.txt
 └── README.md
 ```
@@ -80,7 +82,7 @@ Example:
 🚀 Key Contributions
 ONN-CNN Hybrid Backbone: Utilizing Operational Neural Networks to capture complex, non-linear patterns that standard CNNs often overlook.
 
-Tri-Stream Attention: Simultaneous processing of spatial, channel, and global self-attention to identify fine-grained details (e.g., logos, stickers, roof racks).
+Tri-Stream Attention: Simultaneous processing of spatial, channel, and global self-attention with an ONNs layer to identify fine-grained details (e.g., logos, stickers, roof racks).
 
 GeM Pooling: Implementation of trainable Generalized Mean Pooling for better feature saliency compared to traditional Global Average Pooling.
 
@@ -118,8 +120,6 @@ Step 1: Prepare Data. Before running the inference, ensure your label list is fo
 ```bash
 python prepared_data.py
 ```
-
-
 Step 2: Run Inference
 Run the evaluation.py script to extract features and identify the hardest negative pairs (the highest similarity between different IDs).
 ```bash
@@ -129,7 +129,7 @@ When the code runs successfully, you will see a confirmation message in the term
 
 ## 📊 Model Performance & Analysis
 
-The model has been evaluated on the dataset to identify hard-to-distinguish vehicle pairs. The model was evaluated on the dataset to identify difficult-to-distinguish vehicle pairs. The following outputs are available in these test results: "Hardest 50 Vehicle ID Table", "Hardest 50 Vehicle Failures of Model", and "Hardest 50 Vehicle Analysis". Other test results and metrics will be shared here along with all training and test code after our article is published.
+The model has been evaluated on the dataset to identify hard-to-distinguish vehicle pairs. The model was evaluated on the dataset to identify difficult-to-distinguish vehicle pairs. The following outputs are available in these test results: "Hardest 50 Vehicle ID Table", "Hardest 50 Vehicle Failures of Model", and "Hardest 50 Vehicle Analysis". Other test results and metrics will be shared here, along with all training and test code, after our article is published.
 
 ### Top Hardest Pairs (Sample)
 The following table lists pairs of IDs with the highest cosine similarity scores, indicating difficult samples for Re-ID tasks.
